@@ -10,7 +10,7 @@ Code based on:
 [OpenAI ES](https://github.com/openai/evolution-strategies-starter)
 
 
-####How to run : 
+#### How to run : 
 
 ES-GAN 
 ```
