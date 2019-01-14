@@ -1,0 +1,68 @@
+{
+  "optimizer_d": "OpenAIOptimizer",
+  "settings_d": {
+    "learning_rate":0.001,
+    "sigma": 0.0002,
+    "c_sigma_factor": 1,
+    "return_proc_mode" : "centered_rank", 
+    "l2coeff" : 0, 
+    "beta1" : 0.9,
+    "beta2" : 0.999
+  },
+  "optimizer_g": "NSRESOptimizer",
+  "settings_g": {
+    "novelty_type" : "quality_diversity",
+    "learning_rate": 0.001,
+    "sigma": 0.0002,
+    "c_sigma_factor": 1,
+    "reward_p" : 0.5,
+    "return_proc_mode" : "centered_rank", 
+    "novelty_proc_mode" : "centered_rank",
+    "l2coeff" : 0, 
+    "beta1" : 0.9,
+    "beta2" : 0.999
+  },
+   "gan": {
+    "network": "simpleGAN", 
+    "args" : {
+      "loss" : "NN" , 
+      "batch_size" : 256,
+      "z_dim" : 256,
+      "penalty_type" : "none",
+      "inception_batch" : 50,
+      "discriminator_normalization" : "none",
+      "discretize_generator" : "False", 
+      "use_vb_d" : "False", 
+      "use_vb_g" : "False",
+      "nonlin_g" : "lrelu",
+      "nonlin_d" : "lrelu"
+    },
+      "novelty_search": {
+      "novelty_calculation" :"average", 
+      "distance_function" :"euclidean", 
+      "k": 25,
+      "population_size": 3,
+      "num_novelty_evals": 1,
+      "bc" :"g_output" ,
+      "bc_every" : 10, 
+      "collect_bc_samples" : "True", 
+      "selection_method": "novelty_prob"
+    } 
+   }, 
+  "dataset_params": {
+    "dataset_name": "8gaussians",
+    "input_height": 0,
+    "input_width": 0,
+    "output_height": 0,
+    "output_width": 0,
+    "c_dim": 0,
+    "eval_test_samples": 0
+  },
+  "misc" : {
+    "save_params_every" : 5000,
+    "collect_stats_every" : 100,
+    "vis_every" : 200, 
+    "density_sample_every" : 5000, 
+    "density_every" : 25000
+  }
+}
